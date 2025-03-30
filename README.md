@@ -14,7 +14,7 @@ docker compose up dev
 Find name of container:
 ```
 docker ps
-``
+```
 
 Attach to the container:
 ```
