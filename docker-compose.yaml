@@ -52,11 +52,11 @@ services:
       #- "ROS_IP=xxx.xx.xx.xx"
       #- "ROS_MASTER_URI=http://xxx.xx.xx.xx:11311"
 
-    volumes:
+    #volumes:
       # Mount the source code
-      - ./bags:/overlay_ws/bags:r
-      - ./orb_slam3_ros/:/overlay_ws/src/orb_slam3_ros:rw
-      - ./../pointcloud_to_grid/:/overlay_ws/src/pointcloud_to_grid:rw
+      #- ./bags:/overlay_ws/bags:r
+      #- ./orb_slam3_ros/:/overlay_ws/src/orb_slam3_ros:rw
+      #- ./../pointcloud_to_grid/:/overlay_ws/src/pointcloud_to_grid:rw
 
     user: ${USERNAME:-devuser}
     command: bash -c "sudo chmod 777 -R /overlay_ws/ && exec sleep infinity"

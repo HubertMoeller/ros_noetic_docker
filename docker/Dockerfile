@@ -41,12 +41,12 @@ WORKDIR /underlay_ws/src
 COPY dependencies.repos .
 RUN vcs import --recursive < dependencies.repos
 
-WORKDIR /underlay_ws/src/Pangolin
-RUN git checkout v0.9.2
-RUN ./scripts/install_prerequisites.sh recommended || true
-RUN cmake -B build 
-RUN cmake --build build
-RUN cmake --install build
+#WORKDIR /underlay_ws/src/Pangolin
+#RUN git checkout v0.9.2
+#RUN ./scripts/install_prerequisites.sh recommended || true
+#RUN cmake -B build 
+#RUN cmake --build build
+#RUN cmake --install build
 
 RUN source /opt/ros/noetic/setup.bash \
   && catkin init 
@@ -81,10 +81,10 @@ RUN source /opt/ros/noetic/setup.bash \
   && mkdir -p /overlay_ws/src \
   && cd /overlay_ws \ 
   && catkin init
-COPY ../orb_slam3_ros/ /overlay_ws/src/orb_slam3_ros/
+  
 #COPY ./some_other_folder/ /overlay_ws/src/some_other_folder/
 WORKDIR /overlay_ws
-#RUN cd ./src && git clone https://github.com/thien94/orb_slam3_ros.git
+
 RUN source /opt/ros/noetic/setup.bash \
   source /underlay_ws/devel/setup.bash \
   && catkin build || true \
