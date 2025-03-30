@@ -38,8 +38,6 @@ RUN apt-get update && apt-get install -y \
 # Create Catkin workspace 
 RUN mkdir -p /underlay_ws/src 
 WORKDIR /underlay_ws/src
-COPY dependencies.repos .
-RUN vcs import --recursive < dependencies.repos
 
 #WORKDIR /underlay_ws/src/Pangolin
 #RUN git checkout v0.9.2
@@ -65,7 +63,7 @@ ENV NO_AT_BRIDGE 1
 # Set up the work directory and entrypoint
 WORKDIR /underlay_ws
 COPY ./docker/entrypoint.sh /
-
+RUN chmod +x /entrypoint.sh
 # Alias python3 as python
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
@@ -92,6 +90,7 @@ RUN source /opt/ros/noetic/setup.bash \
 
 # Set up the work directory and entrypoint
 COPY ./docker/entrypoint.sh /
+RUN chmod +x /entrypoint.sh
 ENTRYPOINT [ "/entrypoint.sh" ]
 
 
