@@ -1,5 +1,6 @@
-Simple docker setup that runs ROS Noetic and rviz without Nvidia drivers 
-Sudo privileges are most likely needed to run
+Simple docker setup that runs ROS Noetic and rviz without needing to install nvidia drivers.
+
+Sudo privileges are needed to run
 
 Build image with:
 ```
