@@ -90,9 +90,11 @@ RUN source /opt/ros/noetic/setup.bash \
 
 # Set up the work directory and entrypoint
 COPY ./docker/entrypoint.sh /
+COPY ./config/rviz_config.rviz /overlay_ws/my_config.rviz
+
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT [ "/entrypoint.sh" ]
-
+CMD ["rviz"]
 
 ################################################################################################
 ## Development Image #
