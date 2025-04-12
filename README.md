@@ -20,3 +20,8 @@ Attach to the container:
 docker exec -it <CONTAINER_NAME> bash
 ```
 
+To open rviz with custom configuration file, type in bash of container:
+```
+rviz -d /overlay_ws/my_config.rviz
+```
+
