@@ -23,8 +23,8 @@ services:
       - QT_X11_NO_MITSHM=1
       - NVIDIA_DRIVER_CAPABILITIES=all
       # Connect remotely to ROS master on Husky
-      - ROS_MASTER_URI=http://192.168.228.219:11311
-      - ROS_IP=192.168.228.39
+      #- ROS_MASTER_URI=http://192.168.228.218:11311
+      #- ROS_IP=192.168.228.39
     volumes:
       # Allows graphical programs in the container.
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
@@ -58,7 +58,7 @@ services:
       - "cpr-a200-0632:192.168.228.219"
     volumes:
       # Mount the source code
-      - ./bags:/overlay_ws/rosbags
+      - ./bags:/overlay_ws/bags
       #- ./bags:/overlay_ws/bags:r
       #- ./orb_slam3_ros/:/overlay_ws/src/orb_slam3_ros:rw
       #- ./../pointcloud_to_grid/:/overlay_ws/src/pointcloud_to_grid:rw
