@@ -64,9 +64,14 @@ Attach to the container:
 docker exec -it <CONTAINER_NAME> bash
 ```
 
-## Other useful commands
+## Other useful stuff
 To open rviz with custom configuration file, type in bash of container:
 ```
 rviz -d /overlay_ws/my_config.rviz
 ```
+The folder /bags/ is mounted to the container and can be used for saving files locally on the machine
+```bash
+$ cd /overlay_ws/bags
+```
+
 
