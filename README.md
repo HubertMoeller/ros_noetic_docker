@@ -1,5 +1,5 @@
 # Docker setup for running ROS Noetic with graphical support and connection to remote ROS master
-Docker setup that runs ROS Noetic and RViz without needing to install Nvidia drivers. This setup also allows for remote connection to a ROS master on another host machine. This project was used for connection remotely to a Husky robot and displaying the topics in RViz.
+Docker setup that runs ROS Noetic and RViz without needing to install Nvidia drivers. This setup also allows for remote connection to a ROS master on another host machine. This project was used for connecting remotely to a Husky robot and displaying the topics in RViz.
 
 ## Install Docker Engine
 
@@ -11,10 +11,10 @@ Note: Make sure to install Docker Engine and not Docker Desktop, as Docker Deskt
 
 Set up the ROS network configurations as below:
 
-1. Connect both machines to the same network, preferrably one with support for static IP addresses as you won't have to perform the setup every time
+1. Connect both machines to the same network, preferrably one with support for static IP addresses as then you won't have to perform the setup every time
 2. Find IP addresses of host and remote machine.
     To see IP adresses use ``$ ìfconfig`` or for a more simple approach use ``$ hostname -I`` on both machines
-    On Robot PC:
+    On terminal of ROS master PC:
     ```bash
     $ export ROS_IP=ip_of_master
     $ export ROS_MASTER_URI=http://ip_of_master:11311
@@ -26,7 +26,7 @@ Set up the ROS network configurations as below:
     ROS_MASTER_URI=ip_of_master
     ROS_IP=ip_of_remote
     ```
-3. To add this permanently to the Husky, modify `/etc/ros/setup.bash` on Husky: Add `export ROS_MASTER_URI=http://ip_of_master:11311` and `export ROS_IP=ip_of_master`
+3. To add this permanently to the master, modify `/etc/ros/setup.bash` on master: Add `export ROS_MASTER_URI=http://ip_of_master:11311` and `export ROS_IP=ip_of_master`
 4. Now build and spin up the container on the remote machine as explained in the section below
 5. Inside the container, try running ``rostopic list`` to see the topics from the master are visible. If this doesn't work try using another IP from the ``$ hostname -I`` command
 6. Try to see if you can read the the data of the topics with ``$ rostopic echo <name_of_topic``
